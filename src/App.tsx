@@ -1,10 +1,11 @@
+import ContenidoOrder from "./components/ContenidoOrder";
 import Productos from "./components/Productos";
 import { menuItems } from "./data/products";
 import useOrder from "./hooks/useOrder";
 
 function App() {
   //Mi hook
-  const { addItem } = useOrder();
+  const { order, addItem } = useOrder();
   //
   //
   //
@@ -28,6 +29,7 @@ function App() {
         <div>
           {" "}
           <h2 className="text-center font-bold text-4xl mb-4">Consumo</h2>
+          <ContenidoOrder order={order} />
         </div>
       </main>
     </>

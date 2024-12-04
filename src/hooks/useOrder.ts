@@ -15,11 +15,12 @@ export default function useOrder() {
     if (productExist) {
       console.log("ya existe");
       //Identificar al que se esta dando click para que aumnete la cantidad y no se agregue otra vez
-      const updateOrder = order.map((orderItem) =>
-        orderItem.id === item.id
-          ? { ...orderItem, quantity: orderItem.quantity + 1 }
-          : orderItem
-      );
+      const updateOrder = order.map((orderItem) => {
+        if (orderItem.id === item.id) {
+          return { ...orderItem, quantity: orderItem.quantity + 1 };
+        }
+        return orderItem;
+      });
 
       setOrder(updateOrder);
 
@@ -33,6 +34,7 @@ export default function useOrder() {
 
   console.log(order);
   return {
+    order,
     addItem,
   };
 }
