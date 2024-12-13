@@ -5,7 +5,7 @@ import useOrder from "./hooks/useOrder";
 
 function App() {
   //Mi hook
-  const { order, addItem } = useOrder();
+  const { order, addItem, deleteItem } = useOrder();
   //
   //
   //
@@ -29,7 +29,7 @@ function App() {
         <div>
           {" "}
           <h2 className="text-center font-bold text-4xl mb-4">Consumo</h2>
-          <ContenidoOrder order={order} />
+          <ContenidoOrder order={order} deleteItem={deleteItem} />
         </div>
       </main>
     </>

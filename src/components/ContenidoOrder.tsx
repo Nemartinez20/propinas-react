@@ -2,10 +2,15 @@ import { OrderItem_T } from "../types";
 
 type OrderContentsProps_T = {
   order: OrderItem_T[];
+  deleteItem: () => void;
 };
 
-export default function ContenidoOrder({ order }: OrderContentsProps_T) {
+export default function ContenidoOrder({
+  order,
+  deleteItem,
+}: OrderContentsProps_T) {
   console.log(order);
+
   return (
     <>
       <div className="space-y-3  mt-5">
@@ -13,10 +18,24 @@ export default function ContenidoOrder({ order }: OrderContentsProps_T) {
           <p className="text-center">La orden esta vacia</p>
         ) : (
           order.map((item) => (
-            <div className="border border-slate-600 p-3">
-              <p>{item.name}</p>
-              <p>{item.quantity}</p>
-              <p>{item.price}</p>
+            <div
+              className="border border-slate-600 p-3 flex justify-between"
+              key={item.id}
+            >
+              <div className="flex flex-col">
+                <p>{item.name}</p>
+                <p className="font-bold">
+                  Cantidad {item.quantity} <span>${item.price}</span>
+                </p>
+              </div>
+              <div>
+                <button
+                  className=" bg-red-600 text-white  rounded-full h-8 w-8"
+                  onClick={() => deleteItem()}
+                >
+                  X
+                </button>
+              </div>
             </div>
           ))
         )}

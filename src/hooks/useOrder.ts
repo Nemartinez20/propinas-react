@@ -32,9 +32,13 @@ export default function useOrder() {
     }
   };
 
+  const deleteItem = () => {
+    console.log("dando click..");
+  };
   console.log(order);
   return {
     order,
     addItem,
+    deleteItem,
   };
 }
