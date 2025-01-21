@@ -4,6 +4,7 @@ import type { MenuItem_T, OrderItem_T } from "../types";
 export default function useOrder() {
   //States
   const [order, setOrder] = useState<OrderItem_T[]>([]);
+  const [tip, setTip] = useState(0);
 
   //Funciones
 
@@ -34,12 +35,14 @@ export default function useOrder() {
 
   //loocup
   const deleteItem = (id: MenuItem_T["id"]) => {
-    console.log("dando click..", id);
+    // console.log("dando click..", id);
     setOrder(order.filter((Element) => Element.id !== id));
   };
-  console.log(order);
+  // console.log(order);
   return {
     order,
+    tip,
+    setTip,
     addItem,
     deleteItem,
   };

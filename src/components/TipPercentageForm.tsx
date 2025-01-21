@@ -21,7 +21,11 @@ const tipOptions = [
   },
 ];
 
-export default function TipPercentageForm() {
+type tipPercentageForm_Props = {
+  setTip: React.Dispatch<React.SetStateAction<number>>;
+};
+
+export default function TipPercentageForm({ setTip }: tipPercentageForm_Props) {
   return (
     <>
       <div>
@@ -31,7 +35,13 @@ export default function TipPercentageForm() {
             {tipOptions.map((tip) => (
               <div key={tip.id} className="flex gap-2">
                 <label htmlFor={tip.id}>{tip.label}</label>
-                <input id={tip.id} type="radio" name="tip" value={tip.value} />
+                <input
+                  id={tip.id}
+                  type="radio"
+                  name="tip"
+                  value={tip.value}
+                  onChange={(e) => setTip(+e.target.value)}
+                />
               </div>
             ))}
           </div>
