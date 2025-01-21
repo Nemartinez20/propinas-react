@@ -15,6 +15,12 @@ export default function OrderTotals({ order }: OrderTotals_Props) {
       ),
     [order]
   );
+  const texto = "hola mundo como estan la vida es igual";
+
+  const primero = texto.split(" ").slice(0, 2).join(" ");
+  console.log(primero);
+  primero.slice(0, 2);
+  console.log(primero);
 
   //
   //

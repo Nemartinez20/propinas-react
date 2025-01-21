@@ -1,6 +1,7 @@
 import ContenidoOrder from "./components/ContenidoOrder";
 import OrderTotals from "./components/OrderTotals";
 import Productos from "./components/Productos";
+import TipPercentageForm from "./components/TipPercentageForm";
 import { menuItems } from "./data/products";
 import useOrder from "./hooks/useOrder";
 
@@ -31,6 +32,7 @@ function App() {
           {" "}
           <h2 className="text-center font-bold text-4xl mb-4">Consumo</h2>
           <ContenidoOrder order={order} deleteItem={deleteItem} />
+          <TipPercentageForm />
           <OrderTotals order={order} />
         </div>
       </main>
