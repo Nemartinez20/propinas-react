@@ -1,8 +1,8 @@
-import { OrderItem_T } from "../types";
+import { MenuItem_T, OrderItem_T } from "../types";
 
 type OrderContentsProps_T = {
   order: OrderItem_T[];
-  deleteItem: () => void;
+  deleteItem: (id: MenuItem_T["id"]) => void;
 };
 
 export default function ContenidoOrder({
@@ -31,7 +31,7 @@ export default function ContenidoOrder({
               <div>
                 <button
                   className=" bg-red-600 text-white  rounded-full h-8 w-8"
-                  onClick={() => deleteItem()}
+                  onClick={() => deleteItem(item.id)}
                 >
                   X
                 </button>

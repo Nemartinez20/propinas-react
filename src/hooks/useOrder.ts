@@ -32,8 +32,10 @@ export default function useOrder() {
     }
   };
 
-  const deleteItem = () => {
-    console.log("dando click..");
+  //loocup
+  const deleteItem = (id: MenuItem_T["id"]) => {
+    console.log("dando click..", id);
+    setOrder(order.filter((Element) => Element.id !== id));
   };
   console.log(order);
   return {
